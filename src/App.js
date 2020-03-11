@@ -47,7 +47,7 @@ function App() {
           <Route path='/DeleteAluno/:id'  render={props => <DeleteAluno {...props} alunos={data}/>} />   
           <Route path='/addaluno' component={AddAlunoForm} />    
       </Switch>  
-    window.location.reload();
+    {window.location.reload()}
       </div>
     </Router> 
     
