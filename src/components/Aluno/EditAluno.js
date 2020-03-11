@@ -28,13 +28,12 @@ const EditAluno = (props) => {
         const dataToSend = {Id:props.match.params.id, nome: data.nome, endereco: data.endereco, numero: data.numero, bairro: data.bairro, cidade: data.cidade, uf: data.uf, foto: data.foto};  
         await axios.put('https://cors-anywhere.herokuapp.com/'+url, dataToSend)  
           .then((result) => {  
-             
-            props.history.push('/alunos')  
-            
+                  
             console.log(result)
           }).catch(err => {
               console.log(err)
           })
+          props.history.push('/alunos')
       }
 
       const onChange = (e) => {  
