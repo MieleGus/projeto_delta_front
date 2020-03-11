@@ -30,7 +30,7 @@ const TableAlunos = props => (
                         <button className="btn mr-5"><FontAwesomeIcon icon={faEdit}/></button>  
                     </Link>
 
-                    <Link>
+                    <Link to={`DeleteAluno/${aluno.id}`}>
                         <button className="btn"><FontAwesomeIcon icon={faTrashAlt}/></button>  
                     </Link>  
                     
@@ -46,7 +46,7 @@ const TableAlunos = props => (
         </tbody>     
   </table>
 
-     <Link to={'/addaluno'}>     
+     <Link to='/addaluno'>     
         <button className="btn btn-primary mt-4">Adicionar aluno</button>
     </Link>
 

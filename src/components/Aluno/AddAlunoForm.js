@@ -7,7 +7,7 @@ import FormAluno from '../elements/FormAluno'
 
 
 
-const url ='http://localhost/projeto_delta2/api/alunos/'
+const url ='http://teste-delta.herokuapp.com/api/alunos'
 
 
 
@@ -16,12 +16,13 @@ const AddAlunoForm = (props) => {
   const [aluno, setAluno] = useState({nome: '', endereco: '', numero: '', bairro: '', cidade: '', aluno: '', uf: '', foto: '' });  
 
 
-  const InsertAluno = (e) => {
+  const InsertAluno = async (e) => {
     e.preventDefault()
     const data = {nome: aluno.nome, endereco: aluno.endereco, numero: aluno.numero, bairro: aluno.bairro, cidade: aluno.cidade, uf: aluno.uf, foto: aluno.foto}
-    axios.post(url, data)
+    await axios.post('https://cors-anywhere.herokuapp.com/'+url, data)
       .then((res) => {
-        console.log(res.data)
+        props.history.push('/alunos') 
+        
       })
       .catch(function (error) {
         // handle error
@@ -38,7 +39,7 @@ const onChange = (e) => {
 }  
 
   return (
-    <form onSubmit={InsertAluno}>
+    <form onSubmit={InsertAluno} enctype="multipart/form-data">
     
     <div className="form">
 
@@ -77,7 +78,7 @@ const onChange = (e) => {
         </div>
 
         <div className="form-group custom-file">
-            <input type="file" className="custom-file-input" id="customFile"/>
+            <input type="file" className="custom-file-input" name="customFile"/>
             <label className="custom-file-label" htmlFor="customFile">Escolher arquivo</label>
         </div>
         <button type="submit" className="btn btn-primary mt-2" block><span>Salvar</span></button> 
