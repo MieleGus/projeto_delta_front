@@ -22,6 +22,7 @@ function App() {
         .then(res => {
           setData(res.data)
           setLoading(false)
+         {window.location.reload()}
         })
     }, [])
 
@@ -47,7 +48,7 @@ function App() {
           <Route path='/DeleteAluno/:id'  render={props => <DeleteAluno {...props} alunos={data}/>} />   
           <Route path='/addaluno' component={AddAlunoForm} />    
       </Switch>  
-    {window.location.reload()}
+    
       </div>
     </Router> 
     
