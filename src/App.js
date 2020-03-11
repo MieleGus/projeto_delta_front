@@ -22,7 +22,7 @@ function App() {
         .then(res => {
           setData(res.data)
           setLoading(false)
-         {window.location.reload()}
+         
         })
     }, [])
 
