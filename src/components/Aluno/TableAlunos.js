@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as   Route, Link } from 'react-router-dom'  
+// import App from '../App'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const TableAlunos = props => (
     <>
-
   <table className="table table-hover">
     <thead>
           <tr>
@@ -14,14 +14,13 @@ const TableAlunos = props => (
           </tr>
         </thead>
         <tbody>
-            
+          
+          
           {props.alunos.length > 0 ? (
             props.alunos.map(aluno => (
               <tr key={aluno.id}>
                 <td>{aluno.nome}</td>
                 <td>
-                
-            
                     <Link to={`/alunos/${aluno.id}`}>     
                         <button className="btn mr-5"><FontAwesomeIcon icon={faEye}/></button>
                     </Link>
@@ -33,19 +32,17 @@ const TableAlunos = props => (
                     <Link to={`DeleteAluno/${aluno.id}`}>
                         <button className="btn"><FontAwesomeIcon icon={faTrashAlt}/></button>  
                     </Link>  
-                    
                 </td>
- 
               </tr>
             ))
             ) : (
                 <tr>
                     <td>Sem alunos cadastrados</td>
                 </tr>
-            )}           
+            )}   
+                   
         </tbody>     
   </table>
-
      <Link to='/addaluno'>     
         <button className="btn btn-primary mt-4">Adicionar aluno</button>
     </Link>

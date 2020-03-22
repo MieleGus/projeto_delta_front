@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-import FormAluno from '../elements/FormAluno'
+import FormAluno from '../elements/FormAlunoGetId'
 
 // import { Button, Card, CardBody, CardFooter, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'bootstrap';
 

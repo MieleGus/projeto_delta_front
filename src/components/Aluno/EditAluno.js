@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 
-const EditAluno = (props) => {
 
+const EditAluno = (props) => {
+    let history = useHistory()
     
-    console.log(props.match.params.id)
+    // console.log(props.match.params.id)
     const url =`http://teste-delta.herokuapp.com/api/alunos/${props.match.params.id}`  
 
     const [data, setData] = useState({nome: '', endereco: '', numero: '', bairro: '', cidade: '', aluno: '', uf: '', foto: ''})  
@@ -24,16 +26,19 @@ const EditAluno = (props) => {
 
         
       const EditAluno = async (e) => {  
+        
         e.preventDefault();  
         const dataToSend = {Id:props.match.params.id, nome: data.nome, endereco: data.endereco, numero: data.numero, bairro: data.bairro, cidade: data.cidade, uf: data.uf, foto: data.foto};  
         await axios.put('https://cors-anywhere.herokuapp.com/'+url, dataToSend)  
-          .then((result) => {  
-                  
-            console.log(result)
+          .then((res) => {  
+            history.push('/alunos')
+            console.log(res)
           }).catch(err => {
               console.log(err)
           })
-          props.history.push('/alunos')
+        //   return <Redirect to='/alunos' />
+          
+        //   props.history.push('/alunos')
       }
 
       const onChange = (e) => {  
@@ -45,7 +50,7 @@ const EditAluno = (props) => {
 
     return (
 
-        <form onSubmit={EditAluno} enctype="multipart/form-data">
+        <form onSubmit={EditAluno} encType="multipart/form-data">
     
     <div className="form">
 
