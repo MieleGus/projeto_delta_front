@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter as   Route, Link } from 'react-router-dom'  
-// import App from '../App'
+import { useGet } from '../../services/api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-const TableAlunos = props => (
+const MenuAluno = () => {
+
+  
+  const [data] = useGet(`http://teste-delta.herokuapp.com/api/alunos`)
+  console.log(data)
+  return(
     <>
   <table className="table table-hover">
     <thead>
@@ -16,8 +21,8 @@ const TableAlunos = props => (
         <tbody>
           
           
-          {props.alunos.length > 0 ? (
-            props.alunos.map(aluno => (
+          {data.length > 0 ? (
+            data.map(aluno => (
               <tr key={aluno.id}>
                 <td>{aluno.nome}</td>
                 <td>
@@ -43,11 +48,12 @@ const TableAlunos = props => (
                    
         </tbody>     
   </table>
-     <Link to='/addaluno'>     
-        <button className="btn btn-primary mt-4">Adicionar aluno</button>
-    </Link>
+  <Link to='/addaluno'>     
+      <button className="btn btn-primary mt-4">Adicionar aluno</button>
+  </Link>
 
     </>
-)
+    )
+}
 
-export default TableAlunos
+export default MenuAluno
