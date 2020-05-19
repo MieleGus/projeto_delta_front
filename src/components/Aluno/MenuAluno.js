@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
-import { BrowserRouter as   Route, Link } from 'react-router-dom'  
+import React, { useState, useEffect } from 'react'
+import {  Link } from 'react-router-dom'  
 import { useGet } from '../../services/api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 const MenuAluno = () => {
+  const url = 'http://teste-delta.herokuapp.com/api/alunos'
 
-  
-  const [data] = useGet(`http://teste-delta.herokuapp.com/api/alunos`)
-  console.log(data)
+  const [data] = useGet(url)
   return(
     <>
   <table className="table table-hover">
@@ -19,8 +19,6 @@ const MenuAluno = () => {
           </tr>
         </thead>
         <tbody>
-          
-          
           {data.length > 0 ? (
             data.map(aluno => (
               <tr key={aluno.id}>

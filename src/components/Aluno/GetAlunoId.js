@@ -3,7 +3,7 @@ import { useGet } from '../../services/api'
 
 
 const GetAlunoId = (props) => {
-    const [data] = useGet(`http://teste-delta.herokuapp.com/api/alunos/${props.match.params.id}`)
+    const [ data ] = useGet(`http://teste-delta.herokuapp.com/api/alunos/${props.match.params.id}`)
     console.log(data)
     return(
 

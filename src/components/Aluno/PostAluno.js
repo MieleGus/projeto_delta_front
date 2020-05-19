@@ -6,14 +6,11 @@ import '../Aluno/PostAluno'
 
 const PostAluno = () => {   
     
-    
     const [aluno, setAluno] = useState({nome: '', endereco: '', numero: '', bairro: '', cidade: '', aluno: '', uf: '', foto: '' });  
     const history = useHistory()
     const url ='http://teste-delta.herokuapp.com/api/alunos'
 
     const InsertAluno = async (e) => {
-        
-        
         e.preventDefault()
         const data = {nome: aluno.nome, endereco: aluno.endereco, numero: aluno.numero, bairro: aluno.bairro, cidade: aluno.cidade, uf: aluno.uf, foto: aluno.foto}
         try {
@@ -27,14 +24,11 @@ const PostAluno = () => {
          }
     }
 
-
-
     const onChange = (e) => {
         e.persist();  
         setAluno({...aluno, [e.target.name]: e.target.value});  
     }  
   
-   
     return (
         <form onSubmit={InsertAluno} encType="multipart/form-data">
         

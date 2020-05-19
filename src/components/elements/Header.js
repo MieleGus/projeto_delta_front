@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 const Header = () => {
     return (
         <>
-    
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="#"></a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
@@ -22,11 +21,8 @@ const Header = () => {
               </ul>
             </div>
           </nav>    
-      
       </>
-    
     )
-
   }
 
 export default Header

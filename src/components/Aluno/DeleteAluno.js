@@ -7,9 +7,9 @@ const DeleteAluno = async (props) => {
     try {
      const url =`http://teste-delta.herokuapp.com/api/alunos/${props.match.params.id}`  
      await axios.delete('https://cors-anywhere.herokuapp.com/'+url)
-     
+     .then(() => {
      history.push('/alunos') 
-        
+     })
     } catch(err) {
         console.log(err)
     }

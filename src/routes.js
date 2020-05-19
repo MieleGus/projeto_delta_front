@@ -26,7 +26,6 @@ const Routes = () => {
                 </div>)
                 }
                 <Switch>    
-                    {/* <Route path='/alunos' exact render={props => <MenuAluno {...props} alunos={data}/>}/>  */}
                     <Route path='/alunos' exact component={MenuAluno}/> 
                     <Route  path='/alunos/:id' component={GetAlunoId}/> 
                     <Route path='/editAluno/:id'  component={EditAluno} />   
